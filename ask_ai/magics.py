@@ -64,6 +64,7 @@ class OpenAIAPI():
             else:
                 break
         pruned_context.reverse()
+        self.context = pruned_context
 
     def display_completion(self, completion):
         display(Markdown(completion))
