@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "ask_ai"
+  site-url: "https://radekosmulski.github.io/ask_ai"
+  description: "A Jupyter Notebook magic for talking to ChatGPT."
+  repo-branch: main
+  repo-url: "https://github.com/radekosmulski/ask_ai"
