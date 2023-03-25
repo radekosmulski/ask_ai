@@ -91,14 +91,7 @@ class CodingAPI(OpenAIAPI):
                         Code: {code}
                         Instruction: {instruction}
 
-                        Output only the code. Do not include the instruction. Do not include the word "print" or any other print statement. Do not include any comments.
-
-                        Example:
-
-                        Code: size = 'big'
-                        Instruction: Add a line that prints the size of the dog.
-
-                        Output: print(size)
+                        Output only the code that should be added next. Do not output the entire code. Do not output the instruction. Do not output the prompt. Do not output any other text. Do not output any lines that are not indented correctly. Do not output any lines that are not valid Python.
                     '''
             }
         ]
