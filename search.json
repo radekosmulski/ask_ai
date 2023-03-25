@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ask_ai",
+    "section": "",
+    "text": "A simple library for talking to ChatGPT from within Jupyter Notebook.\nMotivation: Don’t fear ChatGPT taking your job. Fear a person using ChatGPT taking your job.\nOf course, this is a sensationalized statement. But it very succinctly gets at something deep and important – using LLMs in your work can unlock massive productivity gains. I do not know of a better way for me to start using these tools than to bring them closer to where I work, which is Jupyter Notebooks.\nAlso, I really hate the “typewriter effect” where you are fed a few words at a time through the ChatGPT UI. I’d much rather have the full reply I can scan in a couple of seconds."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "ask_ai",
+    "section": "Install",
+    "text": "Install\n\npip install git+https://github.com/radekosmulski/ask_ai.git\nSet the environment variable OPENAI_API_KEY to your OpenAI API key.\nLoad the magics in your jupyter notebook: %load_ext ask_ai.magics"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "ask_ai",
+    "section": "How to use",
+    "text": "How to use\nUse %%ai_ask to start a new conversation, and %%ai_continue to continue an existing conversation.\n%%ai_ask starts a conversation with new (blank) context.\nAs long as you using %%ai_continue all (or the most recent) previous messages will be forwarded as context. This can be helpful if your question is related to what you have been discussing so far. In other cases, it is faster and cheaper to use %%ai_ask as fewer tokens are used."
+  },
+  {
+    "objectID": "magics.html",
+    "href": "magics.html",
+    "title": "magics",
+    "section": "",
+    "text": "openai.api_key = os.environ['OPENAI_API_KEY']\nCONTEXT_MAX_WORDS = 2200\n\n\nsource\n\nCodingAPI\n\n CodingAPI ()\n\nHelper class that provides a standard way to create an ABC using inheritance.\n\nsource\n\n\nConversationAPI\n\n ConversationAPI ()\n\nHelper class that provides a standard way to create an ABC using inheritance.\n\nsource\n\n\nOpenAIAPI\n\n OpenAIAPI ()\n\nHelper class that provides a standard way to create an ABC using inheritance.\n\nsource\n\n\ncollect_code_history\n\n collect_code_history ()\n\n\nsource\n\n\nai_code\n\n ai_code (line, cell)\n\n\nsource\n\n\nai_continue\n\n ai_continue (line, cell)\n\n\nsource\n\n\nai_ask\n\n ai_ask (line, cell)\n\n\nsource\n\n\nload_ipython_extension\n\n load_ipython_extension (ipython)\n\n\nload_ipython_extension(get_ipython())\n\n\nHow to write an abstract clsss in Python?\n\nIn Python, to write an abstract class, you need to use the ABC (Abstract Base Class) module from the abc library. You can define an abstract method by decorating the method with the @abstractmethod decorator. Here’s an example:\nfrom abc import ABC, abstractmethod\n\nclass MyAbstractClass(ABC):\n    \n    @abstractmethod\n    def my_method(self):\n        pass\nIn this example, MyAbstractClass is an abstract class that defines an abstract method my_method(). Any subclass inheriting from this abstract class must implement my_method() or it will result in an error.\n\n\n\nCan you give me an example?\n\nSure!\nLet’s say you want to create a program that performs calculations on different geometric shapes like rectangle, circle, and triangle. All these shapes share some common attributes like area and perimeter.\nTo create an abstract class that defines these attributes as abstract methods, you can use the following code:\nfrom abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self):\n        pass\n\n    @abstractmethod\n    def perimeter(self):\n        pass\nIn this example, Shape is an abstract base class that defines two abstract methods, area and perimeter. Any class that inherits from this Shape class must implement these two methods or else it will result in an error.\nNow, let’s say you want to create a Rectangle class that inherits from the Shape abstract class:\nclass Rectangle(Shape):\n    def __init__(self, length, width):\n        self.length = length\n        self.width = width\n\n    def area(self):\n        return self.length * self.width\n\n    def perimeter(self):\n        return 2 * (self.length + self.width)\nIn this example, Rectangle is a concrete class that implements the abstract methods area and perimeter. It defines the __init__ method to initialize the length and width of the rectangle. The area method calculates the area of the rectangle, and the perimeter method calculates the perimeter of the rectangle.\nYou can create other classes like Circle and Triangle and inherit from the Shape class to implement the area and perimeter methods according to the properties of the specific shape."
+  }
+]
