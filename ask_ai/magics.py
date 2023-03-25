@@ -90,7 +90,14 @@ class CodingAPI(OpenAIAPI):
                         Code: {code}
                         Instruction: {instruction}
 
-                        Output only the code that should be added next. Do not output the entire code. Do not output the instruction. Do not output the prompt. Do not output any other text. Do not output any lines that are not indented correctly. Do not output any lines that are not valid Python.
+                        Output only the code. Do not include the instruction. Do not include the word "print" or any other print statement. Do not include any comments.
+
+                        Example:
+
+                        Code: size = 'big'
+                        Instruction: Add a line that prints the size of the dog.
+
+                        Output: print(size)
                     '''
             }
         ]
@@ -128,11 +135,7 @@ def ai_code(line, cell):
     prompt = f'Code: {collect_code_history()}\nInstruction: {cell}'
     coding_api.get_completion(prompt)
     
-    # this removes the boilerplate text from the completion
-    pattern = r"^(Code|```).*\n"
-    code = re.sub(pattern, "", coding_api.completion, flags=re.MULTILINE)
-    
-    encoded_code = base64.b64encode(code.encode()).decode()
+    encoded_code = base64.b64encode(coding_api.completion.encode()).decode()
     js_code = f"""
         var new_cell = Jupyter.notebook.insert_cell_below('code');
         new_cell.set_text(atob("{encoded_code}"));
