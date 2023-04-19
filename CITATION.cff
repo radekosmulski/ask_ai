@@ -1,7 +1,16 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+title: >-
+  Ask AI - library for talking to ChatGPT from within
+  Jupyter Notebook
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
 authors:
-  - family-names: Osmulski
-    given-names: Radek
-title: "Ask AI - library for talking to ChatGPT from within Jupyter Notebook"
-date-released: 2023-03-23
+  - given-names: Radek
+    family-names: Osmulski
+repository-code: 'https://github.com/radekosmulski/ask_ai'
+date-released: '2023-03-23'
