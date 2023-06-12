@@ -11,8 +11,13 @@ from IPython.display import display, Markdown
 
 # %% ../nbs/00_magics.ipynb 4
 openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_type = os.getenv('OPENAI_API_TYPE')
+openai.api_base = os.getenv('OPENAI_API_BASE')
+openai.api_version = os.getenv('OPENAI_API_VERSION')
+
 if openai.api_type == "azure":
     deployment_name = os.environ['OPENAI_DEPLOYMENT_NAME']
+    
 CONTEXT_MAX_WORDS = 2200
 
 # %% ../nbs/00_magics.ipynb 5
