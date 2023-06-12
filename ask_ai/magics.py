@@ -11,6 +11,8 @@ from IPython.display import display, Markdown
 
 # %% ../nbs/00_magics.ipynb 4
 openai.api_key = os.environ['OPENAI_API_KEY']
+if openai.api_type == "azure":
+    deployment_name = os.environ['OPENAI_DEPLOYMENT_NAME']
 CONTEXT_MAX_WORDS = 2200
 
 # %% ../nbs/00_magics.ipynb 5
@@ -35,10 +37,16 @@ class OpenAIAPI(ABC):
             }
         )
 
-        response = openai.ChatCompletion.create(
-            model = "gpt-3.5-turbo",
-            messages = self.context
-        )
+        if openai.api_type == "azure":
+            response = openai.ChatCompletion.create(
+                model = deployment_name,
+                messages = self.context
+            )
+        else:
+            response = openai.ChatCompletion.create(
+                model = "gpt-3.5-turbo",
+                messages = self.context
+            )
         
         completion = self.extract_completion(response)
         self.extend_context(response)
