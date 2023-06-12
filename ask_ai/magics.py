@@ -36,7 +36,7 @@ class OpenAIAPI(ABC):
         )
 
         response = openai.ChatCompletion.create(
-            model = "gpt-3.5-turbo",
+            engine = "aps-gpt-35-turbo",
             messages = self.context
         )
         
