@@ -44,7 +44,7 @@ class OpenAIAPI(ABC):
 
         if openai.api_type == "azure":
             response = openai.ChatCompletion.create(
-                model = deployment_name,
+                engine = deployment_name,
                 messages = self.context
             )
         else:
