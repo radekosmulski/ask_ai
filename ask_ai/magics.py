@@ -16,7 +16,7 @@ openai.api_base = os.getenv('OPENAI_API_BASE')
 openai.api_version = os.getenv('OPENAI_API_VERSION')
 
 if openai.api_type == "azure":
-    deployment_name = os.environ['OPENAI_DEPLOYMENT_NAME']
+    deployment_name = os.environ['DEPLOYMENT_NAME']
     
 CONTEXT_MAX_WORDS = 2200
 
